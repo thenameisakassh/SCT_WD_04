@@ -1,0 +1,44 @@
+:root{
+  --bg:#f6f8fa; --card:#ffffff; --muted:#6b7280; --accent:#2563eb; --danger:#dc2626; --success:#16a34a;
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial}
+body{background:linear-gradient(180deg,var(--bg),#eef2ff 100%);color:#0f172a}
+.topbar{padding:18px 22px;border-bottom:1px solid rgba(15,23,42,0.05);background:transparent}
+.topbar h1{margin:0;font-size:20px}
+.subtitle{margin:4px 0 0;color:var(--muted);font-size:13px}
+.app{display:flex;height:calc(100vh - 82px);gap:20px;padding:18px}
+.sidebar{width:260px;display:flex;flex-direction:column;background:var(--card);border-radius:12px;padding:12px;box-shadow:0 6px 18px rgba(15,23,42,0.06)}
+.sidebar-top{margin-bottom:8px}
+.inline-form{display:flex;gap:8px}
+.inline-form input{flex:1;padding:8px;border:1px solid #e6e9ef;border-radius:8px}
+.inline-form button{background:var(--accent);color:white;border:none;padding:8px 10px;border-radius:8px}
+.lists{list-style:none;padding:0;margin:8px 0;overflow:auto}
+.lists li{padding:8px;border-radius:8px;display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;cursor:pointer}
+.lists li.active{background:linear-gradient(90deg,rgba(37,99,235,0.08),rgba(59,130,246,0.03));border:1px solid rgba(37,99,235,0.12)}
+.lists button{background:none;border:none;color:var(--muted);cursor:pointer}
+.sidebar-bottom{margin-top:auto;display:flex;gap:8px}
+.muted{background:none;border:1px solid #eef2ff;padding:6px;border-radius:8px;color:var(--muted);cursor:pointer}
+.danger{border-color:rgba(220,38,38,0.12);color:var(--danger)}
+.main{flex:1;display:flex;flex-direction:column;gap:12px}
+.list-header{display:flex;justify-content:space-between;align-items:center}
+.list-header h2{margin:0}
+.add-task form{display:flex;gap:8px}
+.add-task input{padding:8px;border-radius:8px;border:1px solid #e6e9ef}
+.add-task button{background:var(--accent);color:white;border:none;padding:8px 12px;border-radius:8px}
+.tasks{list-style:none;padding:0;margin:0;overflow:auto}
+.task{background:var(--card);padding:12px;border-radius:10px;margin-bottom:8px;display:flex;gap:12px;align-items:flex-start;border:1px solid rgba(15,23,42,0.03)}
+.task .left{flex:1}
+.task h4{margin:0;font-size:15px}
+.task p{margin:6px 0 0;color:var(--muted);font-size:13px}
+.task .meta{margin-top:8px;font-size:12px;color:var(--muted);display:flex;gap:10px;align-items:center}
+.task .actions{display:flex;gap:8px}
+.task button{background:none;border:none;cursor:pointer;padding:6px;border-radius:6px}
+.checkbox{width:20px;height:20px;border-radius:6px;border:1px solid #dbeafe;display:inline-flex;align-items:center;justify-content:center;cursor:pointer}
+.completed h4{text-decoration:line-through;color:var(--muted)}
+.overdue{border-left:4px solid var(--danger)}
+.modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(2,6,23,0.4)}
+.modal[aria-hidden="false"]{display:flex}
+.modal-content{background:var(--card);padding:16px;border-radius:12px;width:420px}
+.modal-actions{display:flex;gap:8px;justify-content:flex-end;margin-top:12px}
+@media (max-width:900px){.app{flex-direction:column}.sidebar{width:100%;order:2}.main{order:1}}

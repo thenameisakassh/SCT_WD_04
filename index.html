@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Simple To-Do — Task#4</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <h1>Simple To-Do</h1>
+    <p class="subtitle">Organize tasks into lists • add due date/time • edit & complete</p>
+  </header>
+
+  <div class="app">
+    <aside class="sidebar">
+      <div class="sidebar-top">
+        <form id="add-list-form" class="inline-form">
+          <input id="new-list-name" placeholder="New list name" aria-label="New list name">
+          <button type="submit">Add List</button>
+        </form>
+      </div>
+
+      <ul id="lists" class="lists"></ul>
+
+      <div class="sidebar-bottom">
+        <button id="export-data" class="muted">Export JSON</button>
+        <button id="import-data" class="muted">Import JSON</button>
+        <input id="import-input" type="file" accept="application/json" style="display:none">
+      </div>
+    </aside>
+
+    <main class="main">
+      <section class="list-header">
+        <h2 id="current-list-name">(No list)</h2>
+        <div class="list-actions">
+          <button id="rename-list" class="muted">Rename</button>
+          <button id="delete-list" class="muted danger">Delete</button>
+        </div>
+      </section>
+
+      <section class="add-task">
+        <form id="add-task-form">
+          <input id="task-title" placeholder="Task title" required>
+          <input id="task-due" type="datetime-local" aria-label="Due date and time">
+          <input id="task-desc" placeholder="Short description (optional)">
+          <button type="submit">Add Task</button>
+        </form>
+      </section>
+
+      <section class="controls">
+        <label for="sort-select">Sort:</label>
+        <select id="sort-select">
+          <option value="custom">Manual order</option>
+          <option value="due">Due date</option>
+          <option value="created">Created</option>
+        </select>
+      </section>
+
+      <ul id="tasks" class="tasks"></ul>
+    </main>
+  </div>
+
+  <!-- Edit modal (simple) -->
+  <div id="edit-modal" class="modal" aria-hidden="true">
+    <div class="modal-content" role="dialog" aria-modal="true">
+      <h3>Edit task</h3>
+      <form id="edit-task-form">
+        <input id="edit-task-title" required>
+        <input id="edit-task-due" type="datetime-local">
+        <input id="edit-task-desc">
+        <div class="modal-actions">
+          <button type="submit">Save</button>
+          <button type="button" id="cancel-edit" class="muted">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
